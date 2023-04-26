@@ -1,15 +1,18 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 int main(){
 
-    int age = 21;
-    float gpa = 2.05;
-    char grade = 'C';
-    char name[] = "Bro";
+    // bool op = true;
 
-    printf("Hello, %s!\n", name);
-    printf("You are %d years old\n", age);
-    printf("Your average grade is %c\n", grade);
-    printf("And your gpa is %0.2f\n", gpa);
+    char ascii = 126;
+    printf("ASCII Char (%d): %c\n", ascii, ascii);
+
+    unsigned long long int superBigNumber = 7253237273923729382U;
+    printf("Huge number: %llu\n", superBigNumber);
+
+    bool binary = true; // or 1
+    printf("1(True) or 0(False): %d\n", binary);
+
     return 0;
 }
