@@ -1,12 +1,18 @@
 #include <stdio.h>
+#include <string.h>
 
 int main(){
 
-    const float PI = 3.14;
+    char name[25];
+    printf("\nHello! What's your name?");
+    fgets(name, 25, stdin);
+    name[strlen(name)-1] = '\0';
 
-    // PI = 5.3; --> Not possible
+    int age;
+    printf("\nHow old are you?");
+    scanf("%d", &age);
 
-    printf("The value of PI is: %f", PI);
+    printf("\nNice to meet you, %s, you are %d years old.", name, age);
 
     return 0;
 }
