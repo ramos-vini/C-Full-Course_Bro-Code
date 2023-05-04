@@ -1,18 +1,19 @@
 #include <stdio.h>
-#include <string.h>
+#include <math.h>
 
 int main(){
 
-    char name[25];
-    printf("\nHello! What's your name?");
-    fgets(name, 25, stdin);
-    name[strlen(name)-1] = '\0';
+    float r;
+    printf("Enter the circle radius: ");
+    scanf("%f", &r);
 
-    int age;
-    printf("\nHow old are you?");
-    scanf("%d", &age);
+    const float PI =  3.14;
+    
+    float circumference = 2*PI*r;
+    float area = PI*pow(r,2);
 
-    printf("\nNice to meet you, %s, you are %d years old.", name, age);
+    printf("\nThe circle circunference is: %fm", circumference);
+    printf("\nThe circle area is: %fm2", area);
 
     return 0;
 }
