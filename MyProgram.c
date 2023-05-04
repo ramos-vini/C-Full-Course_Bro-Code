@@ -3,17 +3,16 @@
 
 int main(){
 
-    float r;
-    printf("Enter the circle radius: ");
-    scanf("%f", &r);
+    double a, b, c;
 
-    const float PI =  3.14;
-    
-    float circumference = 2*PI*r;
-    float area = PI*pow(r,2);
+    printf("\nLet's build a triangle.\nEnter the size (m) of the side A: ");
+    scanf("%lf", &a);
 
-    printf("\nThe circle circunference is: %fm", circumference);
-    printf("\nThe circle area is: %fm2", area);
+    printf("\nNow enter side B: ");
+    scanf("%lf", &b);
+
+    c = sqrt(a*a + b*b);
+    printf("\nThe side of the hypotenuse (side C) is: %.2lf", c);
 
     return 0;
 }
