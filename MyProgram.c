@@ -3,16 +3,29 @@
 
 int main(){
 
-    double a, b, c;
+    // C/5 = (F-32)/9
 
-    printf("\nLet's build a triangle.\nEnter the size (m) of the side A: ");
-    scanf("%lf", &a);
+    // C = (F-32)/9*5
+    // F = C/5*9+32
 
-    printf("\nNow enter side B: ");
-    scanf("%lf", &b);
+    char unit;
+    int temperature;
+    int temperatureConverted;
 
-    c = sqrt(a*a + b*b);
-    printf("\nThe side of the hypotenuse (side C) is: %.2lf", c);
+    printf("\n~Temperature Converter Program~\n\n");
+    printf("Type in \"F\" for Fahrenheit or \"C\" for Celsius:\n");
+    scanf("%c", &unit);
+
+    printf("Type in the temperature in %c:", unit);
+    scanf("%d", &temperature);
+
+    if(unit == 'F'){
+        temperatureConverted = (temperature-32)/9*5;
+        printf("The temperature converted is: %d C", temperatureConverted);
+    } else{
+        temperatureConverted = temperature/5*9+32;
+        printf("The temperature converted is: %d F", temperatureConverted);
+    }
 
     return 0;
 }
