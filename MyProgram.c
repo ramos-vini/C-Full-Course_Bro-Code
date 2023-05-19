@@ -3,29 +3,43 @@
 
 int main(){
 
-    // C/5 = (F-32)/9
+    double n1, n2;
+    char op;
+    double result;
 
-    // C = (F-32)/9*5
-    // F = C/5*9+32
+    printf("\nCalculator Program\n");
+    printf("\nType in the first number:\n");
+    scanf("%lf",&n1);
 
-    char unit;
-    int temperature;
-    int temperatureConverted;
+    printf("Type in the operator sign ('+', '-', '*' or '/'):\n");
+    scanf("%s",&op);
 
-    printf("\n~Temperature Converter Program~\n\n");
-    printf("Type in \"F\" for Fahrenheit or \"C\" for Celsius:\n");
-    scanf("%c", &unit);
+    printf("Type in the second number:\n");
+    scanf("%lf",&n2);
 
-    printf("Type in the temperature in %c:", unit);
-    scanf("%d", &temperature);
+    switch (op)
+    {
+    case '+':
+        result = n1 + n2;
+        break;
+    
+    case '-':
+        result = n1 - n2;
+        break;
 
-    if(unit == 'F'){
-        temperatureConverted = (temperature-32)/9*5;
-        printf("The temperature converted is: %d C", temperatureConverted);
-    } else{
-        temperatureConverted = temperature/5*9+32;
-        printf("The temperature converted is: %d F", temperatureConverted);
+    case '*':
+        result = n1 * n2;
+        break;
+
+    case '/':
+        result = n1 / n2;
+        break;
+
+    default:
+        break;
     }
+
+    printf("\n%lf %c %lf = %lf\n", n1, op, n2, result);
 
     return 0;
 }
