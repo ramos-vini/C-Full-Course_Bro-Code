@@ -3,12 +3,20 @@
 
 int main(){
 
-    char string1[] = "Vini";
-    char string2[] = "Ramos";
+    char name[25];
 
-    strnset(string2, 'X', strlen(string1));
+    printf("What's your name?\n");
+    fgets(name, 25, stdin);
+    name[strlen(name)-1] = '\0';
+    
+    while(strlen(name) == 0){
+        printf("You did not enter your name.\n");
+        printf("What's your name?\n");
+        fgets(name, 25, stdin);
+        name[strlen(name)-1] = '\0';
+    }
 
-    printf("Result: %s", string2); 
+    printf("Hello %s\n", name);
     
     return 0;
 }
