@@ -1,15 +1,14 @@
 #include <stdio.h>
-#include <math.h>
-
-void hello(char[], int); // Function Prototype
+#include <string.h>
 
 int main(){
 
-    hello("Vini", 21);
+    char string1[] = "Vini";
+    char string2[] = "Ramos";
+
+    strnset(string2, 'X', strlen(string1));
+
+    printf("Result: %s", string2); 
     
     return 0;
-}
-
-void hello(char name[], int age){
-    printf("\nHello %s, you are %d years old.\n", name, age);
 }
