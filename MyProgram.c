@@ -4,13 +4,23 @@
 int main()
 {
 
-    double numbers[] = {5, 7.5, 10, 12.5, 15, 17.5, 20};
+    // int numbers[3][3];
 
-    // printf("%d bytes\n",sizeof(numbers));
+    int numbers[][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
 
-    for (int i = 0; i < (sizeof(numbers) / sizeof(numbers[0])); i++)
+    int rows = sizeof(numbers) / sizeof(numbers[0]);
+    printf("Rows: %d\n", rows);
+
+    int columns = sizeof(numbers[0]) / sizeof(numbers[0][0]);
+    printf("Columns: %d\n", columns);
+
+    for (int i = 0; i < rows; i++)
     {
-        printf("$%.2lf\n", numbers[i]);
+        for (int j = 0; j < columns; j++)
+        {
+            printf("%d ", numbers[i][j]);
+        }
+        printf("\n");
     }
 
     return 0;
