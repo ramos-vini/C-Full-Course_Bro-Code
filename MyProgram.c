@@ -3,22 +3,25 @@
 
 int main()
 {
+    char cars[][10] = {"Mustang", "Corvette", "Camaro"};
 
-    // int numbers[3][3];
+    // cars[0] = "Tesla" --> Doesn't work!
+    strcpy(cars[0], "Tesla");
 
-    int numbers[][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-
-    int rows = sizeof(numbers) / sizeof(numbers[0]);
-    printf("Rows: %d\n", rows);
-
-    int columns = sizeof(numbers[0]) / sizeof(numbers[0][0]);
-    printf("Columns: %d\n", columns);
-
-    for (int i = 0; i < rows; i++)
+    for (int i = 0; i < sizeof(cars) / sizeof(cars[0]); i++)
     {
-        for (int j = 0; j < columns; j++)
+        printf("%s\n", cars[i]);
+    }
+
+    printf("---------\n");
+
+    char letters[][3][4] = {{"abc", "def", "ghi"}, {"jkl", "mno", "pqr"}, {"stu", "vws", "yzz"}};
+
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
         {
-            printf("%d ", numbers[i][j]);
+            printf("%s ", letters[i][j]);
         }
         printf("\n");
     }
