@@ -1,22 +1,17 @@
 #include <stdio.h>
 #include <string.h>
 
-int main(){
+int main()
+{
 
-    char name[25];
+    double numbers[] = {5, 7.5, 10, 12.5, 15, 17.5, 20};
 
-    printf("What's your name?\n");
-    fgets(name, 25, stdin);
-    name[strlen(name)-1] = '\0';
-    
-    while(strlen(name) == 0){
-        printf("You did not enter your name.\n");
-        printf("What's your name?\n");
-        fgets(name, 25, stdin);
-        name[strlen(name)-1] = '\0';
+    // printf("%d bytes\n",sizeof(numbers));
+
+    for (int i = 0; i < (sizeof(numbers) / sizeof(numbers[0])); i++)
+    {
+        printf("$%.2lf\n", numbers[i]);
     }
 
-    printf("Hello %s\n", name);
-    
     return 0;
 }
