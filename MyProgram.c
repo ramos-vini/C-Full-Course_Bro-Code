@@ -1,19 +1,36 @@
 #include <stdio.h>
-#include <string.h>
+
+void sort(int array[], int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        for (int j = i; j < size; j++)
+        {
+            if (array[i] > array[j])
+            {
+                int temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+        }
+    }
+}
+
+void print(int array[], int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        printf("%d\n", array[i]);
+    }
+}
 
 int main()
 {
-  
-    char a[15] = "Water";
-    char b[15] = "Lemonade";
-    char temp[15];
+    int array[] = {6, 5, 7, 2, 4, 8, 0, 3, 1, 9};
+    int size = sizeof(array)/sizeof(array[0]);
 
-    strcpy(temp, a);
-    strcpy(a, b);
-    strcpy(b,temp);
-
-    printf("a = %s\n", a);
-    printf("b = %s\n", b);
+    sort(array, size);
+    print(array, size);
 
     return 0;
 }
