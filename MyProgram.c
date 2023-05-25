@@ -3,28 +3,17 @@
 
 int main()
 {
-    char cars[][10] = {"Mustang", "Corvette", "Camaro"};
+  
+    char a[15] = "Water";
+    char b[15] = "Lemonade";
+    char temp[15];
 
-    // cars[0] = "Tesla" --> Doesn't work!
-    strcpy(cars[0], "Tesla");
+    strcpy(temp, a);
+    strcpy(a, b);
+    strcpy(b,temp);
 
-    for (int i = 0; i < sizeof(cars) / sizeof(cars[0]); i++)
-    {
-        printf("%s\n", cars[i]);
-    }
-
-    printf("---------\n");
-
-    char letters[][3][4] = {{"abc", "def", "ghi"}, {"jkl", "mno", "pqr"}, {"stu", "vws", "yzz"}};
-
-    for (int i = 0; i < 3; i++)
-    {
-        for (int j = 0; j < 3; j++)
-        {
-            printf("%s ", letters[i][j]);
-        }
-        printf("\n");
-    }
+    printf("a = %s\n", a);
+    printf("b = %s\n", b);
 
     return 0;
 }
