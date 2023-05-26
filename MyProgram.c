@@ -1,24 +1,34 @@
 #include <stdio.h>
 #include <string.h>
 
+typedef char String [25];
+
+typedef struct
+{
+    String name;
+    String password;
+    int id;
+} User;
+
+
 int main()
 {
-    struct Player{
-        char name[15];
-        int score;
-    };
+    // struct User{
+    //     char name[25];
+    //     char password[15];
+    //     int id;
+    // };
 
-    struct Player player1;
-    struct Player player2;
+    User user1 = {"Billy", "password123", 47};
 
-    strcpy(player1.name, "Billy");
-    player1.score = 70;
+    User user2;
+    strcpy(user2.name, "Johnny");
+    strcpy(user2.password, "otherPassword123");
+    user2.id = 48; 
 
-    strcpy(player2.name, "Johnny");
-    player2.score = 80;
-
-    printf("Name: %s\nScore: %d\n\n", player1.name, player1.score);
-    printf("Name: %s\nScore: %d\n\n", player2.name, player2.score);
+    printf("%s\n%s\n%d\n", user1.name, user1.password, user1.id);
+    printf("----------\n");
+    printf("%s\n%s\n%d\n", user2.name, user2.password, user2.id);
 
     return 0;
 }
