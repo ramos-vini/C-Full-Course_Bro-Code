@@ -1,36 +1,24 @@
 #include <stdio.h>
-
-void sort(int array[], int size)
-{
-    for (int i = 0; i < size; i++)
-    {
-        for (int j = i; j < size; j++)
-        {
-            if (array[i] > array[j])
-            {
-                int temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
-            }
-        }
-    }
-}
-
-void print(int array[], int size)
-{
-    for (int i = 0; i < size; i++)
-    {
-        printf("%d\n", array[i]);
-    }
-}
+#include <string.h>
 
 int main()
 {
-    int array[] = {6, 5, 7, 2, 4, 8, 0, 3, 1, 9};
-    int size = sizeof(array)/sizeof(array[0]);
+    struct Player{
+        char name[15];
+        int score;
+    };
 
-    sort(array, size);
-    print(array, size);
+    struct Player player1;
+    struct Player player2;
+
+    strcpy(player1.name, "Billy");
+    player1.score = 70;
+
+    strcpy(player2.name, "Johnny");
+    player2.score = 80;
+
+    printf("Name: %s\nScore: %d\n\n", player1.name, player1.score);
+    printf("Name: %s\nScore: %d\n\n", player2.name, player2.score);
 
     return 0;
 }
