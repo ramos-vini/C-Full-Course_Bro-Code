@@ -1,34 +1,24 @@
 #include <stdio.h>
-#include <string.h>
-
-typedef char String [25];
 
 typedef struct
 {
-    String name;
-    String password;
-    int id;
-} User;
-
+    char name[15];
+    float gpa;    
+} Student;
 
 int main()
 {
-    // struct User{
-    //     char name[25];
-    //     char password[15];
-    //     int id;
-    // };
+    Student student1 = {"Spongebob", 3.0};
+    Student student2 = {"Patrick", 2.0};
+    Student student3= {"Sandy", 4.0};
+    Student student4 = {"Squidward", 1.5};
 
-    User user1 = {"Billy", "password123", 47};
+    Student students[] = {student1, student2, student3, student4};
 
-    User user2;
-    strcpy(user2.name, "Johnny");
-    strcpy(user2.password, "otherPassword123");
-    user2.id = 48; 
-
-    printf("%s\n%s\n%d\n", user1.name, user1.password, user1.id);
-    printf("----------\n");
-    printf("%s\n%s\n%d\n", user2.name, user2.password, user2.id);
+    for (int i = 0; i < sizeof(students)/sizeof(students[0]); i++)
+    {
+        printf("%-12s %.1f\n", students[i].name, students[i].gpa);
+    }
 
     return 0;
 }
