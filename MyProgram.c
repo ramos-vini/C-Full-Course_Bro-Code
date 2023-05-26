@@ -1,23 +1,15 @@
 #include <stdio.h>
 
-typedef struct
-{
-    char name[15];
-    float gpa;    
-} Student;
+enum Day{Sun = 1, Mon = 2, Tue = 3, Wed = 4, Thu = 5, Fri = 6, Sat = 7};
 
 int main()
 {
-    Student student1 = {"Spongebob", 3.0};
-    Student student2 = {"Patrick", 2.0};
-    Student student3= {"Sandy", 4.0};
-    Student student4 = {"Squidward", 1.5};
+    enum Day today = Sat;
 
-    Student students[] = {student1, student2, student3, student4};
-
-    for (int i = 0; i < sizeof(students)/sizeof(students[0]); i++)
-    {
-        printf("%-12s %.1f\n", students[i].name, students[i].gpa);
+    if(today == Sun || today == 7){
+        printf("It's weekend!");
+    } else{
+        printf("I have to work :(");
     }
 
     return 0;
