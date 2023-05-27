@@ -1,16 +1,14 @@
 #include <stdio.h>
-
-enum Day{Sun = 1, Mon = 2, Tue = 3, Wed = 4, Thu = 5, Fri = 6, Sat = 7};
+#include <stdlib.h>
+#include <time.h>
 
 int main()
 {
-    enum Day today = Sat;
+    srand(time(0));
 
-    if(today == Sun || today == 7){
-        printf("It's weekend!");
-    } else{
-        printf("I have to work :(");
-    }
+    int random= rand() % 6 + 1;
+
+    printf("%d", random);
 
     return 0;
 }
