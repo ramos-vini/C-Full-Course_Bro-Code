@@ -1,39 +1,57 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+#include <string.h>
 
 int main()
 {
-    srand(time(0));
+    char questions [][100] =
+        {
+            "1. What year did the C language debut?",
+            "2. Who is credited with creating C?",
+            "3. What is de predecessor of C?"};
 
-    int answer = rand() % 100 + 1;
-    int guess;
-    int guesses = 0;
+    char options [][4][25] = {
+        {"a) 1969", "b) 1972", "c) 1985", "d) 1999"},
+        {"a) Dennis Ritchie", "b) Nikola Tesla", "c) John Carmack", "d) James Gosling"},
+        {"a) Objective C", "b) B", "c) C++", "d) C#"}};
 
-    printf("Number Guessing Game!\n\n");
+    char answers[] = {'B', 'A', 'B'};
 
-    do
+    char guesses[sizeof(answers) / sizeof(answers[0])];
+
+    printf("Quiz Time!\n");
+    int points = 0;
+
+    for (int i = 0; i < sizeof(questions) / sizeof(questions[0]); i++)
     {
-        printf("Pick a number between 1-100:");
-        scanf("%d", &guess);
-        guesses++;
+        printf("\n%s\n\n", questions[i]);
 
-        if (guess > answer)
+        for (int j = 0; j < sizeof(options[j]) / sizeof(options[j][0]); j++)
         {
-            printf("Too high!\n");
-        }
-        else if (guess != answer)
-        {
-            printf("Too low!\n");
+            printf("%s\n", options[i][j]);
         }
 
-    } while (guess != answer);
+        scanf(" %c", &guesses[i]);
 
-    printf("\nCORRECT!\n");
-    printf("\n**************\n");
-    printf("Answer: %d\n", answer);
-    printf("Guesses: %d\n", guesses);
-    printf("**************");
+        guesses[i] = toupper(guesses[i]);
+
+        if (guesses[i] == answers[i])
+        {
+            points++;
+        }
+    }
+
+    printf("\nYou did %d/3!\n", points);
+    printf("Your guesses: ");
+    for (int i = 0; i < sizeof(guesses) / sizeof(guesses[0]); i++)
+    {
+        printf("%c ", guesses[i]);
+    }
+
+    printf("\nAnswers: ");
+    for (int i = 0; i < sizeof(answers) / sizeof(answers[0]); i++)
+    {
+        printf("%c ", answers[i]);
+    }
 
     return 0;
 }
