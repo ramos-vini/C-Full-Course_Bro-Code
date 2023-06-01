@@ -1,15 +1,21 @@
 #include <stdio.h>
 
+void myFunction(int *pointer){
+    printf("Value printed in myFunction(): %d\n", *pointer);
+}
+
 int main()
 {
-    char x = 'X';
-    char y = 'Y';
+    int age = 21;
 
-    printf("\nSize of 'x': %d bytes\n", sizeof(x));
-    printf("Memory Address of 'x': %p\n", &x);
+    int *pAge = &age;
+    // int *pAge = NULL;
+    // pAge = &age;
 
-    printf("\nSize of 'y': %d bytes\n", sizeof(y));
-    printf("Memory Address of 'y': %p\n", &y);
+    printf("Address stored in pAge: %p\n", pAge);
+    printf("Value stored in pAge's address: %d\n", *pAge);
+
+    myFunction(pAge);
 
     return 0;
 }
