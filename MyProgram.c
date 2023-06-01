@@ -2,13 +2,14 @@
 
 int main()
 {
-    int x = 12; // x = 0001100
-    int y = 6; // y = 00000110
-    int z = x ^ y; // z = 00001010
+    char x = 'X';
+    char y = 'Y';
 
-    z = z << 1; // z = 00010100
+    printf("\nSize of 'x': %d bytes\n", sizeof(x));
+    printf("Memory Address of 'x': %p\n", &x);
 
-    printf("%d", z);
-    
+    printf("\nSize of 'y': %d bytes\n", sizeof(y));
+    printf("Memory Address of 'y': %p\n", &y);
+
     return 0;
 }
