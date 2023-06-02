@@ -19,8 +19,6 @@ int main()
     bool gameOver = false;
     int player = 1;
 
-    // callGameOver(player, tictac);
-
     while (!gameOver)
     {
         // Printing the game table
@@ -56,23 +54,24 @@ int main()
         }
 
         // Player Input
-        // TODO: Verify if slot is empty
         char symbol = player == 1 ? 'X' : 'O';
 
         int row, col;
-        do{
-        printf("Player %d's turn!\n", player);
-        printf("\nInsert a row [1-3]: ");
-        scanf("%d", &row);
-        row--;
-        printf("Insert a column [1-3]: ");
-        scanf("%d", &col);
-        col--;
+        do
+        {
+            printf("Player %d's turn!\n", player);
+            printf("\nInsert a row [1-3]: ");
+            scanf("%d", &row);
+            row--;
+            printf("Insert a column [1-3]: ");
+            scanf("%d", &col);
+            col--;
 
-        if(tictac[row][col] != ' '){
-            printTable(tictac);
-            printf("*Unavailable position!*\n\n");
-        }
+            if (tictac[row][col] != ' ')
+            {
+                printTable(tictac);
+                printf("*Unavailable position!*\n\n");
+            }
         } while (tictac[row][col] != ' ');
 
         tictac[row][col] = symbol;
@@ -99,7 +98,8 @@ int main()
             }
         }
 
-        if(gameOver){
+        if (gameOver)
+        {
             break;
         }
 
@@ -123,7 +123,8 @@ int main()
             }
         }
 
-        if(gameOver){
+        if (gameOver)
+        {
             break;
         }
 
@@ -150,7 +151,8 @@ int main()
             }
         }
 
-        if(gameOver){
+        if (gameOver)
+        {
             break;
         }
 
@@ -177,9 +179,29 @@ int main()
             }
         }
 
-        if(gameOver){
+        if (gameOver)
+        {
             break;
-        }    
+        }
+
+        // draw
+        gameOver = true;
+        for (int i = 0; i < sizeof(tictac) / sizeof(tictac[0]); i++)
+        {
+            for (int j = 0; j < sizeof(tictac[0]) / sizeof(tictac[0][0]); j++)
+            {
+                if (tictac[i][j] == ' ')
+                {
+                    gameOver = false;
+                }
+            }
+        }
+
+        if (gameOver)
+        {
+            callGameOver(0, tictac);
+            break;
+        }
 
         player = player == 1 ? 2 : 1;
     }
@@ -190,13 +212,22 @@ int main()
 void callGameOver(int player, char *tictac[3][3])
 {
     printTable(tictac);
-    
+
     printf("\n****************");
-    printf("\nPlayer %d wins!!\n", player);
+    if (player == 1 || player == 2)
+    {
+        printf("\nPlayer %d wins!!\n", player);
+    }
+    else
+    {
+        printf("\nIt's a draw!\n");
+    }
+
     printf("****************\n");
 }
 
-void printTable(char *tictac[3][3]){
+void printTable(char *tictac[3][3])
+{
 
     for (int i = 0; i < sizeof(*tictac) / sizeof(*tictac[0]); i++)
     {
@@ -228,5 +259,4 @@ void printTable(char *tictac[3][3]){
             printf("\n\n");
         }
     }
-
 }
