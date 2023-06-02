@@ -60,6 +60,7 @@ int main()
         char symbol = player == 1 ? 'X' : 'O';
 
         int row, col;
+        do{
         printf("Player %d's turn!\n", player);
         printf("\nInsert a row [1-3]: ");
         scanf("%d", &row);
@@ -67,6 +68,12 @@ int main()
         printf("Insert a column [1-3]: ");
         scanf("%d", &col);
         col--;
+
+        if(tictac[row][col] != ' '){
+            printTable(tictac);
+            printf("*Unavailable position!*\n\n");
+        }
+        } while (tictac[row][col] != ' ');
 
         tictac[row][col] = symbol;
 
@@ -182,6 +189,15 @@ int main()
 
 void callGameOver(int player, char *tictac[3][3])
 {
+    printTable(tictac);
+    
+    printf("\n****************");
+    printf("\nPlayer %d wins!!\n", player);
+    printf("****************\n");
+}
+
+void printTable(char *tictac[3][3]){
+
     for (int i = 0; i < sizeof(*tictac) / sizeof(*tictac[0]); i++)
     {
         if (i == 0)
@@ -213,7 +229,4 @@ void callGameOver(int player, char *tictac[3][3])
         }
     }
 
-    printf("\n****************");
-    printf("\nPlayer %d wins!!\n", player);
-    printf("****************\n");
 }
