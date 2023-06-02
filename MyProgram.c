@@ -180,7 +180,6 @@ int main()
     return 0;
 }
 
-// TODO: Fix table printing
 void callGameOver(int player, char *tictac[3][3])
 {
     for (int i = 0; i < sizeof(*tictac) / sizeof(*tictac[0]); i++)
@@ -204,7 +203,7 @@ void callGameOver(int player, char *tictac[3][3])
             }
         }
 
-        if (i < sizeof(tictac) / sizeof(tictac[0]) - 1)
+        if (i < sizeof(*tictac) / sizeof(*tictac[0]) - 1)
         {
             printf("\n---|---|---\n");
         }
